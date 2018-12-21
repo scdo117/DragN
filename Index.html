@@ -1,0 +1,91 @@
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/interactjs@1.3.4/dist/interact.min.js"></script> -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> -->
+
+    <script src="js/vue.js"></script>
+    <script src="js/vueComponents.js"></script>
+    <script src="js/DnD.js"></script>
+    <link href="css/MagnetoPlanStyles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="container-fluid" id='appIndex'>
+
+        <div class="row">
+            <div-tecnico></div-tecnico>
+            <column-hora v-bind:horadia="'7:00'" v-bind:firstset="'firstSet'" v-bind:displayencabezado="'displayEncabezado'"></column-hora>
+            <column-hora v-bind:horadia="'8:00'" v-bind:displayencabezado="'displayEncabezado'"></column-hora>
+            <column-hora v-bind:horadia="'9:00'" v-bind:displayencabezado="'displayEncabezado'"></column-hora>
+            <column-hora v-bind:horadia="'10:00'" v-bind:displayencabezado="'displayEncabezado'"></column-hora>
+            <column-hora v-bind:horadia="'11:00'" v-bind:displayencabezado="'displayEncabezado'"></column-hora>
+            <column-hora v-bind:horadia="'12:00'" v-bind:displayencabezado="'displayEncabezado'"></column-hora>
+            <column-hora v-bind:horadia="'13:00'" v-bind:displayencabezado="'displayEncabezado'"></column-hora>
+            <column-hora v-bind:horadia="'14:00'" v-bind:displayencabezado="'displayEncabezado'"></column-hora>
+            <column-hora v-bind:horadia="'15:00'" v-bind:displayencabezado="'displayEncabezado'"></column-hora>
+            <column-hora v-bind:horadia="'16:00'" v-bind:displayencabezado="'displayEncabezado'"></column-hora>
+            <column-hora v-bind:horadia="'17:00'" v-bind:displayencabezado="'displayEncabezado'"></column-hora>
+        </div>
+        <div class="row">
+            <div-tecnico></div-tecnico>
+            <column-hora v-bind:horadia="'7:00'" v-bind:firstset="'firstSet'"></column-hora>
+            <column-hora v-bind:horadia="'8:00'"></column-hora>
+            <column-hora v-bind:horadia="'9:00'"></column-hora>
+            <column-hora v-bind:horadia="'10:00'"></column-hora>
+            <column-hora v-bind:horadia="'11:00'"></column-hora>
+            <column-hora v-bind:horadia="'12:00'"></column-hora>
+            <column-hora v-bind:horadia="'13:00'"></column-hora>
+            <column-hora v-bind:horadia="'14:00'"></column-hora>
+            <column-hora v-bind:horadia="'15:00'"></column-hora>
+            <column-hora v-bind:horadia="'16:00'"></column-hora>
+            <column-hora v-bind:horadia="'17:00'"></column-hora>
+        </div>
+        <div class="row">
+            <div-tecnico></div-tecnico>
+            <column-hora v-bind:horadia="'7:00'" v-bind:firstset="'firstSet'"></column-hora>
+            <column-hora v-bind:horadia="'8:00'"></column-hora>
+            <column-hora v-bind:horadia="'9:00'"></column-hora>
+            <column-hora v-bind:horadia="'10:00'"></column-hora>
+            <column-hora v-bind:horadia="'11:00'"></column-hora>
+            <column-hora v-bind:horadia="'12:00'"></column-hora>
+            <column-hora v-bind:horadia="'13:00'"></column-hora>
+            <column-hora v-bind:horadia="'14:00'"></column-hora>
+            <column-hora v-bind:horadia="'15:00'"></column-hora>
+            <column-hora v-bind:horadia="'16:00'"></column-hora>
+            <column-hora v-bind:horadia="'17:00'"></column-hora>
+        </div>
+        <div class="row">
+            <div-tecnico></div-tecnico>
+            <column-hora v-bind:horadia="'7:00'" v-bind:firstset="'firstSet'"></column-hora>
+            <column-hora v-bind:horadia="'8:00'"></column-hora>
+            <column-hora v-bind:horadia="'9:00'"></column-hora>
+            <column-hora v-bind:horadia="'10:00'"></column-hora>
+            <column-hora v-bind:horadia="'11:00'"></column-hora>
+            <column-hora v-bind:horadia="'12:00'"></column-hora>
+            <column-hora v-bind:horadia="'13:00'"></column-hora>
+            <column-hora v-bind:horadia="'14:00'"></column-hora>
+            <column-hora v-bind:horadia="'15:00'"></column-hora>
+            <column-hora v-bind:horadia="'16:00'"></column-hora>
+            <column-hora v-bind:horadia="'17:00'"></column-hora>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-6">
+                <elem-orden></elem-orden>
+                <elem-orden></elem-orden>
+                <elem-orden></elem-orden>
+                <elem-orden></elem-orden>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
