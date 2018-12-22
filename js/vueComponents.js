@@ -20,7 +20,7 @@ var Tecnico = {};
     });
     
     Vue.component('elem-orden', {
-        template: '<div class="ordenTrabajo dragItem">trabajo pendiente 1</div>'
+        template: '<div class="ordenTrabajo"><div class="dragItem"></div>trabajo pendiente 1</div>'
     });
     
     

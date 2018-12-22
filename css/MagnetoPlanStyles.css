@@ -103,11 +103,11 @@
     -webkit-user-drag: element;
 }
 
-    .ordenTrabajo:hover {
+    .dragItem:hover {
         cursor: grab;
     }
 
-    .ordenTrabajo:active {
+    .dragItem:active {
         cursor: grabbing;
     }
 
@@ -152,3 +152,21 @@
     .resize:hover{
         cursor:w-resize;
     }
+   /*Agregar dragitems como el resize*/
+    .ordenTrabajo > .dragItem{
+        position: relative;
+        left:0;
+        width: 25px;
+        background-color: coral;
+        height: 25px;
+        display: inline-block;
+        z-index: 1000;
+    }
+    
+    /* .dragItem{
+        position: absolute;
+        left: 0;
+        background-color: coral;
+        height: inherit;
+        width: 25px;
+    } */

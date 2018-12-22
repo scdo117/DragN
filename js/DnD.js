@@ -43,7 +43,7 @@ function dragStartFn(event) {
     console.log(event);
 
     this.style.opacity = '0.3';
-    _dragElement = this;
+    _dragElement = this.parent;
 }
 
 
@@ -75,7 +75,7 @@ function dropFn(event) {
         console.log(this);
         console.log(event);
         
-        if(_dragElement.children.length < 1){
+        if(_dragElement.children.length < 2){
             let resize = document.createElement('div');
             resize.className = 'resize';
             resize.addEventListener('mousedown',initResizeFn,false);
@@ -85,15 +85,13 @@ function dropFn(event) {
     }
     catch(exception){
         _dragElement = null;
-        console.error(exception.toString());
+        console.error(exception);
     }
     let actual = this;
     actual.style.backgroundColor = 'red';
     setTimeout(function(){
         actual.style.backgroundColor = 'white';
     },3000);
-    
-    
 }
 
 function initResizeFn(event){
@@ -104,8 +102,10 @@ function initResizeFn(event){
 //Validar que sea el elemento al que se esta haciendo el resize
 function resizeFn(event){
     console.log()
-    let parent = this.parent;
-    parent.style.width = ((event.clientX - parent.offsetLeft) + 'px');
+    // let parent = this.parent;
+    console.log('resize');
+    console.log(event);
+    // parent.style.width = ((event.clientX - parent.offsetLeft) + 'px');
 }
 
 function stopResizeFn(event){
