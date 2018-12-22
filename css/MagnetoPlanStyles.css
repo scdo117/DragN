@@ -111,7 +111,25 @@
         cursor: grabbing;
     }
 
-    .planeado > .ordenTrabajo {
+    /* .planeado > .ordenTrabajo {
+        position: absolute;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        height: 21px;
+        z-index: 999;
+        white-space: nowrap;
+        overflow: hidden;
+    } */
+    
+    .minuteColGrid{
+        position: relative;
+        margin-top:1px;
+        margin-bottom:1px;
+        height: 23px;
+        display: inline-block;
+    }
+
+    .minuteColGrid > .ordenTrabajo{
         position: absolute;
         margin-top: 2px;
         margin-bottom: 2px;
@@ -120,11 +138,17 @@
         white-space: nowrap;
         overflow: hidden;
     }
-    
-    .minuteColGrid{
+
+    .ordenTrabajo > .resize{
         position: relative;
-        margin-top:1px;
-        margin-bottom:1px;
-        height: 23px;
+        right:0;
+        width: 5px;
+        background-color: cadetblue;
+        height: 100%;
         display: inline-block;
+        z-index: 1000;
+    }
+
+    .resize:hover{
+        cursor:w-resize;
     }
