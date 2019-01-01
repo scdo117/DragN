@@ -30,7 +30,6 @@ setTimeout(() => {
                 grid.addEventListener('dragover',function(event){event.preventDefault();},false);
                 minutes.appendChild(grid);
             }
-
         });
     });
 
@@ -39,16 +38,19 @@ setTimeout(() => {
 
 function dragStartFn(event) {
     console.info('Drag me like you mean it! XD');
-    console.log(this);
+    console.log(this.parentElement);
     console.log(event);
 
-    this.style.opacity = '0.3';
-    _dragElement = this.parent;
+    this.parentElement.style.opacity = '0.3';
+    event.dragIcon = this.parentElement;
+    _dragElement = this.parentElement;
+    console.log('_dragElement');
+    console.log(_dragElement);
 }
 
 
 function dragEndFn(event) {
-    this.style.opacity = '1';
+    this.parentElement.style.opacity = '1';
     event.dataTransfereffectAllowed = 'move';
     event.dataTransfer.setData('text/html', _dragElement);
 }
@@ -75,11 +77,11 @@ function dropFn(event) {
         console.log(this);
         console.log(event);
         
-        if(_dragElement.children.length < 2){
+        if(_dragElement.parentElement.children.length < 2){
             let resize = document.createElement('div');
             resize.className = 'resize';
             resize.addEventListener('mousedown',initResizeFn,false);
-            _dragElement.appendChild(resize);
+            _dragElement.parentElement.appendChild(resize);
         }
         this.insertBefore(_dragElement, this.firstChild);
     }
