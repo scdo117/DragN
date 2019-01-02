@@ -68,7 +68,7 @@ function dragLeaveFn() {
     this.style.borderStyle = 'none';
 
 }
-
+    
 function dropFn(event) {
     try {
         if (event.stopPropagation) {
