@@ -3,6 +3,8 @@
 'use strict';
 var _relativePositionX;
 var _dragElement;//Variable globar para elemento arrastrado
+var startX, startY, startWidth, startHeight;
+var _pResize;
 setTimeout(() => {
     //Obtener elementos que serán arrastrables
     let drags = document.querySelectorAll('.dragItem');
@@ -27,25 +29,24 @@ setTimeout(() => {
                 grid.addEventListener('drop', dropFn, false);
                 grid.addEventListener('dragenter', dragEnterFn, false);
                 grid.addEventListener('dragleave', dragLeaveFn, false);
-                grid.addEventListener('dragover',function(event){event.preventDefault();},false);
+                grid.addEventListener('dragover', function (event) { event.preventDefault(); }, false);
                 minutes.appendChild(grid);
             }
         });
     });
 
-
 }, (1));
 
 function dragStartFn(event) {
-    console.info('Drag me like you mean it! XD');
-    console.log(this.parentElement);
-    console.log(event);
+    // console.info('Drag me like you mean it! XD');
+    // console.log(this.parentElement);
+    // console.log(event);
 
     this.parentElement.style.opacity = '0.3';
     event.dragIcon = this.parentElement;
     _dragElement = this.parentElement;
-    console.log('_dragElement');
-    console.log(_dragElement);
+    // console.log('_dragElement');
+    // console.log(_dragElement);
 }
 
 
@@ -56,61 +57,63 @@ function dragEndFn(event) {
 }
 
 function dragEnterFn() {
-    console.info('Over drop zone');
-    console.log(this);
-    this.style.borderstyle = 'dashed';
-    this.style.borderwidth = '1px';
+    // console.info('Over drop zone');
+    // console.log(this);
+    this.style.borderStyle = 'dashed';
+    this.style.borderWidth = '1px';
 }
 
 function dragLeaveFn() {
-    console.info('Over drop zone');
-    this.style.borderstyle = 'none';
+    // console.info('Bye drop zone');
+    this.style.borderStyle = 'none';
+
 }
 
-
 function dropFn(event) {
-    try{
+    try {
         if (event.stopPropagation) {
             event.stopPropagation();
         }
-        console.info('Drop the bomb xdddd');
-        console.log(this);
-        console.log(event);
-        
-        if(_dragElement.parentElement.children.length < 2){
+        // console.info('Drop the bomb xdddd');
+        // console.log(this);
+        // console.log(event);
+        if (_dragElement.children.length < 2) {
             let resize = document.createElement('div');
             resize.className = 'resize';
-            resize.addEventListener('mousedown',initResizeFn,false);
-            _dragElement.parentElement.appendChild(resize);
+            resize.addEventListener('mousedown', initResizeFn, false);
+            _dragElement.appendChild(resize);
         }
         this.insertBefore(_dragElement, this.firstChild);
     }
-    catch(exception){
+    catch (exception) {
         _dragElement = null;
         console.error(exception);
     }
     let actual = this;
     actual.style.backgroundColor = 'red';
-    setTimeout(function(){
+    setTimeout(function () {
         actual.style.backgroundColor = 'white';
-    },3000);
+        actual.style.borderStyle = "none";
+    }, 3000);
 }
 
-function initResizeFn(event){
+function initResizeFn(e) {
     console.log('init resize');
-    window.addEventListener('mousemove', resizeFn, false);
-    window.addEventListener('mouseup', stopResizeFn, false);
-}
-//Validar que sea el elemento al que se esta haciendo el resize
-function resizeFn(event){
-    console.log()
-    // let parent = this.parent;
-    console.log('resize');
-    console.log(event);
-    // parent.style.width = ((event.clientX - parent.offsetLeft) + 'px');
+    console.log(e);
+    if (e.stopPropagation)
+        e.stopPropagation();
+    _pResize = this.parentElement;
+    startX = e.clientX;
+    startWidth = parseInt(document.defaultView.getComputedStyle(_pResize).width, 10);
+    document.documentElement.addEventListener('mousemove', doDrag, false);
+    document.documentElement.addEventListener('mouseup', stopDrag, false);
 }
 
-function stopResizeFn(event){
-    window.removeEventListener('mousemove', resizeFn, false);
-    window.removeEventListener('mouseup', stopResizeFn, false);
+function doDrag(e) {
+    _pResize.style.width = (startWidth + e.clientX - startX) + 'px';
+}
+
+function stopDrag(e) {
+    document.documentElement.removeEventListener('mousemove', doDrag, false);
+    document.documentElement.removeEventListener('mouseup', stopDrag, false);
 }

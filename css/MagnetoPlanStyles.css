@@ -1,3 +1,22 @@
+body{
+    height:100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#encabezado{
+    background-color: #172433;
+    height: 65px;
+    font-weight: bolder;
+    font-size: 25px;
+    color:white;
+}
+
+.tecnicoEncabezado{
+    height: 25px;
+    text-align: center;
+}
+
 .Tecnico {
     top:25px;
     height: 55px;
@@ -137,7 +156,18 @@
         z-index: 999;
         white-space: nowrap;
         overflow: hidden;
+        font-size: 17px;
+        text-indent: 19px;
     }
+
+    .minuteColGrid > .ordenTrabajo > .dragItem{
+        position: absolute;
+        height: 17px;
+        width: 17px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+
 
     .ordenTrabajo > .resize{
         position: relative;
@@ -162,7 +192,10 @@
         display: inline-block;
         z-index: 1000;
     }
-    
+    .ordenes{
+        height: 500px;
+    }
+
     /* .dragItem{
         position: absolute;
         left: 0;
@@ -170,3 +203,32 @@
         height: inherit;
         width: 25px;
     } */
+
+
+    @keyframes noIniciado {
+        0%   { opacity:1; }
+        50%  { opacity:0; }
+        100% { opacity:1; }
+      }
+      @-o-keyframes noIniciado{
+        0%   { opacity:1; }
+        50%  { opacity:0; }
+        100% { opacity:1; }
+        
+      }
+      @-moz-keyframes noIniciado{
+        0%   { opacity:1; }
+        50%  { opacity:0; }
+        100% { opacity:1; }
+      }
+      @-webkit-keyframes noIniciado{
+        0%   { opacity:1; }
+        50%  { opacity:0; }
+        100% { opacity:1; }
+      }
+      .asignadoNoIniciado {
+         -webkit-animation: noIniciado 2s infinite;
+         -moz-animation: noIniciado 2s infinite;
+         -o-animation: noIniciado 2s infinite;
+          animation: noIniciado 2s infinite;
+      }

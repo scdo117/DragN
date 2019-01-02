@@ -1,10 +1,10 @@
 var Tecnico = {};
     Vue.component('div-tecnico', {
-        template: '<div class="Tecnico col-md-1">{{Tecnico.Nombre}}</div>',
+        template: '<div class="Tecnico col-1">{{Tecnico.Nombre}}</div>',
         data: function () {
             return {
                 Tecnico: {
-                    Nombre: 'Eugenio'
+                    Nombre: randName()
                 }
             }
         }
@@ -22,10 +22,32 @@ var Tecnico = {};
     Vue.component('elem-orden', {
         template: '<div class="ordenTrabajo"><div class="dragItem"></div>trabajo pendiente 1</div>'
     });
-    
+
+    Vue.component('elem-pausado', {
+        template: '<div class="ordenTrabajo"><div class="dragItem"></div>trabajo pausado 1</div>'
+    });    
     
     window.onload = function () {
         var vm = new Vue({
             el: '#appIndex',
         });
     }    
+
+
+    function randName(){
+        let randNum = Math.floor(Math.random() * 10);
+        let names = [];
+        names.push('Eugenio');
+        names.push('Laura');
+        names.push('Daniel');
+        names.push('Alejandra');
+        names.push('Roberto');
+        names.push('Viridiana');
+        names.push('Guillermo');
+        names.push('Jasmin');
+        names.push('Aldo');
+        names.push('Vianey');
+
+        return names[randNum];
+
+    }
